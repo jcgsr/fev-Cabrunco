@@ -1,42 +1,49 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `black`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+// bootstrap
+import Navbar from "react-bootstrap/Navbar"
+import Nav from "react-bootstrap/Nav"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import FormControl from "react-bootstrap/FormControl"
+import Container from "react-bootstrap/Container"
+
+const Header = () => (
+  <header>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Link to="/">
+          <Navbar.Brand>Marque Aqui</Navbar.Brand>
         </Link>
-      </h1>
-    </div>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            <Nav.Link as={Link} to="#parceiro">
+              Parceiros
+            </Nav.Link>
+
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Procurar"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Procurar</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
