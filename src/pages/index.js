@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => (
         ))}
       </Carousel>
 
-      {/* <StaticImage
+      {/*  <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
       quality={95}
